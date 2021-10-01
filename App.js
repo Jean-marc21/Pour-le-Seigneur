@@ -1,10 +1,8 @@
 import React from 'react';
-import {NativeBaseProvider, Box} from 'native-base'
+import DrawerNavigation from './Navigation/DrawerNavigation'
 
 export default function App() {
   return (
-   <NativeBaseProvider>
-     <Box>Hello World !</Box>
-   </NativeBaseProvider>
+   <DrawerNavigation/>
   );
 }
