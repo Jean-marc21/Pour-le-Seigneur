@@ -1,5 +1,6 @@
 // ./Components/Favorites.js
 
+import React from 'react';
 import {Container, Text} from 'native-base';
 
 function Favorites (props){

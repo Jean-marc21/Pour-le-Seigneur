@@ -41,6 +41,8 @@ function Component(props) {
 
 const getIcon = (screenName) => {
   switch (screenName) {
+    case 'Home':
+      return 'home'
     case 'Inbox':
       return "email"
     case 'Outbox':
