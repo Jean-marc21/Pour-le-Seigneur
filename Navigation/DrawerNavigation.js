@@ -22,7 +22,7 @@ import {
   Icon
 } from 'native-base';
 
-import Home from '../Components/Home';
+import StackNavigation from '../Navigation/StackNavigation';
 import Favorites from '../Components/Favorites';
 
 const Drawer = createDrawerNavigator();
@@ -90,50 +90,6 @@ function CustomDrawerContent(props) {
               </Pressable>
             ))}
           </VStack>
-          <VStack space={5}>
-            <Text fontWeight={500} fontSize={14} px={5} color="gray.500">Labels</Text>
-            <VStack space={3}>
-              <Pressable
-                px={5}
-                py={3}
-              >
-                <HStack space={7} alignItems="center">
-                  <Icon
-                  color='gray.500'
-                  size={5} as={<MaterialCommunityIcons name='bookmark'/>}  />
-                  <Text color='gray.700' fontWeight={500}>
-                    Family
-                  </Text>
-                </HStack>
-              </Pressable>
-               <Pressable
-                px={5}
-                py={2}
-               >
-                <HStack space={7} alignItems="center">
-                  <Icon
-                  color='gray.500'
-                  size={5} as={<MaterialCommunityIcons name='bookmark'/>}  />
-                  <Text color='gray.700'  fontWeight={500}>
-                    Friends
-                  </Text>
-                </HStack>
-              </Pressable>
-              <Pressable
-                px={5}
-                py={3}
-              >
-                <HStack space={7} alignItems="center">
-                  <Icon
-                  color='gray.500'
-                  size={5} as={<MaterialCommunityIcons name='bookmark'/>}  />
-                  <Text  fontWeight={500} color='gray.700'>
-                    Work
-                  </Text>
-                </HStack>
-              </Pressable>
-            </VStack>
-          </VStack>
         </VStack>
       </VStack>
     </DrawerContentScrollView>
@@ -145,18 +101,9 @@ function MyDrawer() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Favorites" component={Favorites} />
+      <Drawer.Screen name="Home" component={StackNavigation} />
     </Drawer.Navigator>
     </Box>
   );
 }
-export default function App() {
-  return (
-    <NavigationContainer>
-      <NativeBaseProvider>
-        <MyDrawer />
-      </NativeBaseProvider>
-    </NavigationContainer>
-  );
-}
+export default MyDrawer;

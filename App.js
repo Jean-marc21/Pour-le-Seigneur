@@ -1,8 +1,11 @@
 import React from 'react';
-import DrawerNavigation from './Navigation/DrawerNavigation'
+import { NativeBaseProvider } from 'native-base';
+import Navigation from './Navigation/Navigation';
 
 export default function App() {
   return (
-   <DrawerNavigation/>
+    <NativeBaseProvider>
+      <Navigation/>
+    </NativeBaseProvider>
   );
 }

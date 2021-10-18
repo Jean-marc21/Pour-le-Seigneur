@@ -3,7 +3,7 @@
 import React from 'react';
 import {Container, Text} from 'native-base';
 
-function Favorites (props){
+const Favorites = function (props){
     return (
         <Container>
             <Text>C'est la page des favories</Text>

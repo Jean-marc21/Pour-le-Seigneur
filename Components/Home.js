@@ -13,20 +13,23 @@ import {gridAutoColumns} from 'styled-system';
 
 const data = songs[0].songs;
 
-function Song ({item}){
+const Song = function (props){
     return (
         <Pressable
-            onPress={()=>{console.log("Hello word !")}}
+            onPress={()=>{
+                props.navigation.navigate('Lyrics', {ref: props.item.ref})
+                }}
         >
             <Box>
                 <HStack>
                     <Box flex={1}>
-                        <Heading size='md'>{item.n}</Heading>
+                        <Heading size='md'>{props.item.n}</Heading>
                     </Box>
                     <Box flex={5}>
                        <VStack>
-                            <Heading size='sm'>{item.title}</Heading>
-                            <Text fontFamily='fantasy' fontStyle='italic'>{item.author}</Text>  
+                            <Heading size='sm'>{props.item.title}</Heading>
+                            <Text fontFamily='cursive' fontStyle='italic'
+                                fontSize='xs' color='grey'>{props.item.author}</Text>  
                         </VStack> 
                     </Box>
                 </HStack>
@@ -35,7 +38,11 @@ function Song ({item}){
     )
 }
 
-function Home (props){
+const Home = function (props){
+    props.navigation.addListener('focus', ()=>{
+        props.navigation.getParent().setOptions({headerShown : true});
+    });
+
     return (
         <Box safeArea>
             <VStack>
@@ -49,7 +56,8 @@ function Home (props){
                 <HStack marginTop='md'>
                     <FlatList 
                         data={data}
-                        renderItem={Song}/>
+                        keyExtractor={item => item.id}
+                        renderItem={(params)=> <Song {...params} {...props}/>}/>
                 </HStack>
             </VStack>
         </Box>
